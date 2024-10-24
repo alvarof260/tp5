@@ -1,9 +1,11 @@
 #include <iostream>
 #include "Vehiculo.h"
-
 using namespace std;
 
-Vehiculo::Vehiculo(string patente, int anioModelo, double pesoMax, double tarifa)
+float Vehiculo::INCREMENTO = 0.25;
+
+Vehiculo::Vehiculo(string patente, int anioModelo,
+                   double pesoMax, double tarifa)
 {
     this->patente = patente;
     this->anioModelo = anioModelo;
@@ -11,40 +13,34 @@ Vehiculo::Vehiculo(string patente, int anioModelo, double pesoMax, double tarifa
     this->tarifa = tarifa;
 }
 
-Vehiculo::Vehiculo()
+void Vehiculo::escribirInfo()
 {
+    cout << "Informacion del vehículo con patente: " << this->patente << endl;
+    cout << "anio del modelo: " << this->anioModelo << endl;
+    cout << "peso máximo: " << this->pesoMax << endl;
+    cout << "tarifa: $" << this->tarifa << endl;
 }
 
-void Vehiculo::EscribirInfo()
-{
-    cout << "Informacion de vehiculo" << endl;
-    cout << "Patente: " << this->patente << endl;
-    cout << "modelo: " << this->anioModelo << endl;
-    cout << "Peso Max: " << this->pesoMax << endl;
-    cout << "Tarifa: " << this->tarifa << endl;
-}
-
-double Vehiculo::GetTarifa()
-{
-    return this->tarifa;
-}
-
-bool Vehiculo::PesoExcedido(double peso)
+bool Vehiculo::pesoExcedido(double peso)
 {
     return this->pesoMax < peso;
 }
 
-double Vehiculo::CalcularIncremento(double peso)
+double Vehiculo::getTarifa()
+{
+    return this->tarifa;
+}
+
+double Vehiculo::calcularIncremento(double peso)
 {
     double montoIncremento = 0;
-    if (PesoExcedido(peso))
-    {
-        montoIncremento = GetTarifa() * this->INCREMENTO;
-    }
+    if (pesoExcedido(peso))
+        montoIncremento = getTarifa() * this->INCREMENTO;
+
     return montoIncremento;
 }
 
-double Vehiculo::CalcularPrecioViaje(double peso)
+double Vehiculo::calcularPrecioViaje(double peso)
 {
-    return GetTarifa() + CalcularIncremento(peso);
+    return getTarifa() + calcularIncremento(peso);
 }
