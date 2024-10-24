@@ -19,4 +19,5 @@ int main()
     pila.escribir();
 
     pila.~Pila();
+    cuenta3->mostrarInformacion();
 }

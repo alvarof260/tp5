@@ -6,18 +6,28 @@
 
 using namespace std;
 
+item **Pila::reservarMemoria(int size)
+{
+	item **reserva = new item *[size];
+	if (reserva == NULL)
+	{
+		cout << "Problema: no se pudo realizar la reserva";
+	}
+	return reserva;
+}
+
 Pila::Pila(int dim)
 {
 	this->MAX = dim > 0 ? dim : 10;
 	this->tope = -1;
-	this->arreglo = new item *[MAX];
+	this->arreglo = reservarMemoria(dim);
 }
-void Pila ::push(item *elemento)
+void Pila::push(item *elemento)
 {
 	if (tope + 1 < MAX)
 	{
 		tope++;
-		arreglo[tope] = elemento;
+		this->arreglo[tope] = elemento;
 	}
 }
 
@@ -25,6 +35,7 @@ void Pila::pop()
 {
 	if (tope >= 0)
 	{
+		delete arreglo[tope];
 		tope--;
 	}
 }
@@ -54,11 +65,10 @@ void Pila::escribir()
 
 Pila::~Pila()
 {
-	tope = -1;
-	MAX = 0;
-	for (int i = this->tope; i >= 0; i--)
+	while (!esPilavacia())
 	{
-		delete arreglo[i];
+		this->pop();
 	}
+
 	delete[] arreglo;
 }

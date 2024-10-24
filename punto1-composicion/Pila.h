@@ -16,7 +16,7 @@ class Pila
 	int tope;
 	item **arreglo;
 	int MAX;
-	item *reservarMemoria(int tama);
+	item **reservarMemoria(int size);
 
 public:
 	Pila(int dim = 10);
