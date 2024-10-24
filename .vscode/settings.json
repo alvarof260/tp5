@@ -52,5 +52,8 @@
     "typeinfo": "cpp",
     "variant": "cpp",
     "sstream": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "Pilavacia"
+  ]
 }

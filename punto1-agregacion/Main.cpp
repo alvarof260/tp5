@@ -19,6 +19,6 @@ int main()
     pila.escribir();
 
     pila.~Pila();
-    pila.escribir();
+    cuenta3.mostrarInformacion();
     return 0;
 }

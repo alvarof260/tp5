@@ -6,22 +6,23 @@
 
 using namespace std;
 
-item *Pila::reservarMemoria(int dim)
+item *Pila::reservarMemoria(int size)
 {
-	item *reserva = new item[dim];
+	item *reserva = new item[size];
 	if (reserva == NULL)
 	{
 		cout << "Problema: no se pudo realizar la reserva";
 	}
 	return reserva;
 }
+
 Pila::Pila(int dim)
 {
 	MAX = dim > 0 ? dim : 10;
 	tope = -1;
 	arreglo = reservarMemoria(MAX);
 }
-void Pila ::push(item elemento)
+void Pila::push(item elemento)
 {
 	if (tope + 1 < MAX)
 	{
@@ -54,7 +55,7 @@ bool Pila::esPilavacia()
 void Pila::escribir()
 {
 	cout << endl
-		 << " PILA INT: (implementaci�n Pila de int)" << endl;
+		 << " PILA INT: (implementación Pila de int)" << endl;
 	for (int i = tope; i >= 0; i--)
 	{
 		arreglo[i].mostrarInformacion();

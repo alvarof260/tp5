@@ -8,9 +8,9 @@ using namespace std;
 
 Pila::Pila(int dim)
 {
-	MAX = dim > 0 ? dim : 10;
-	tope = -1;
-	arreglo = new item *[MAX];
+	this->MAX = dim > 0 ? dim : 10;
+	this->tope = -1;
+	this->arreglo = new item *[MAX];
 }
 void Pila ::push(item *elemento)
 {
@@ -45,7 +45,7 @@ bool Pila::esPilavacia()
 void Pila::escribir()
 {
 	cout << endl
-		 << " PILA INT: (implementaci�n Pila de int)" << endl;
+		 << " PILA INT: (implementación Pila de int)" << endl;
 	for (int i = tope; i >= 0; i--)
 	{
 		arreglo[i]->mostrarInformacion();
@@ -60,6 +60,5 @@ Pila::~Pila()
 	{
 		delete arreglo[i];
 	}
-
 	delete[] arreglo;
 }
