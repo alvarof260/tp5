@@ -7,7 +7,7 @@ class Vehiculo
     string patente;
     int anioModelo;
     double pesoMax;
-    static float INCREMENTO;
+    static const float INCREMENTO = 0.25;
     double tarifa;
     bool pesoExcedido(double peso);
     double calcularIncremento(double peso);
