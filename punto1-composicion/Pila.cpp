@@ -6,9 +6,9 @@
 
 using namespace std;
 
-item **Pila::reservarMemoria(int size)
+item *Pila::reservarMemoria(int size)
 {
-	item **reserva = new item *[size];
+	item *reserva = new item[size];
 	if (reserva == NULL)
 	{
 		cout << "Problema: no se pudo realizar la reserva";
@@ -22,12 +22,12 @@ Pila::Pila(int dim)
 	this->tope = -1;
 	this->arreglo = reservarMemoria(dim);
 }
-void Pila::push(item *elemento)
+void Pila::push(int cod, long int dni, double saldo)
 {
 	if (tope + 1 < MAX)
 	{
 		tope++;
-		this->arreglo[tope] = elemento;
+		this->arreglo[tope] = new Cuenta(cod, dni, saldo);
 	}
 }
 
@@ -43,7 +43,7 @@ void Pila::pop()
 item Pila::top()
 {
 	if (!esPilavacia())
-		return *arreglo[tope];
+		return arreglo[tope];
 	else
 		return indefinido;
 }

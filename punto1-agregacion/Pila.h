@@ -8,8 +8,8 @@
 #include "Cuenta.h"
 
 using namespace std;
-typedef Cuenta item;
-const int indefinido = -999;
+typedef Cuenta* item;
+const item indefinido = nullptr;
 
 class Pila
 

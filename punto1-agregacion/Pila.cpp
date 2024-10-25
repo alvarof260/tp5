@@ -58,7 +58,7 @@ void Pila::escribir()
 		 << " PILA INT: (implementación Pila de int)" << endl;
 	for (int i = tope; i >= 0; i--)
 	{
-		arreglo[i].mostrarInformacion();
+		arreglo[i]->mostrarInformacion();
 	}
 }
 

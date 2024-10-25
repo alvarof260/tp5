@@ -8,20 +8,20 @@
 #include "Cuenta.h"
 
 using namespace std;
-typedef Cuenta item;
-const int indefinido = -999;
+typedef Cuenta *item;
+const item indefinido = nullptr;
 
 class Pila
 {
 	int tope;
-	item **arreglo;
+	item *arreglo;
 	int MAX;
-	item **reservarMemoria(int size);
+	item *reservarMemoria(int size);
 
 public:
 	Pila(int dim = 10);
 
-	void push(item *elemento);
+	void push(int, long int, double);
 	item top();
 	void pop();
 	bool esPilavacia();

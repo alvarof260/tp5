@@ -9,9 +9,9 @@ int main()
     Cuenta cuenta2(125, 45125156, 1000.0);
     Cuenta cuenta3(130, 45141541, 500.0);
 
-    pila.push(cuenta1);
-    pila.push(cuenta2);
-    pila.push(cuenta3);
+    pila.push(&cuenta1);
+    pila.push(&cuenta2);
+    pila.push(&cuenta3);
 
     pila.escribir();
 
