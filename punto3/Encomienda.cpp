@@ -4,13 +4,11 @@ using namespace std;
 
 int Encomienda::autonumerico = 0;
 
-Encomienda::Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso, Fecha &fechaEntrega,
-                       bool entregado, double pesoEncomienda, Vehiculo *vehiculo) : fechaIngreso(fechaIngreso), fechaEntrega(fechaEntrega)
+Encomienda::Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso, double pesoEncomienda, Vehiculo *vehiculo) : fechaIngreso(fechaIngreso)
 {
     this->codigoEncomienda = ++Encomienda::autonumerico;
     this->dirOrigen = dirOrigen;
     this->dirDestino = dirDestino;
-    this->entregado = entregado;
     this->pesoEncomienda = pesoEncomienda;
     this->vehiculo = vehiculo;
 }
@@ -27,7 +25,7 @@ void Encomienda::escribirInfo()
     this->vehiculo->escribirInfo();
 }
 
-void Encomienda::setFechaEntrega(Fecha fecha)
+void Encomienda::setFechaEntrega(Fecha &fecha)
 {
     this->fechaEntrega = fecha;
     this->entregado = true;
@@ -48,4 +46,9 @@ double Encomienda::calcularPrecioEncomienda()
     double peso = getPeso();
     double precio = this->vehiculo->calcularPrecioViaje(peso);
     return precio;
+}
+
+double Encomienda::getPeso()
+{
+    return this->pesoEncomienda;
 }

@@ -10,16 +10,15 @@ class Encomienda
     string dirOrigen;
     string dirDestino;
     Fecha &fechaIngreso;
-    Fecha &fechaEntrega;
+    Fecha fechaEntrega;
     bool entregado;
     double pesoEncomienda;
     Vehiculo *vehiculo;
 
 public:
-    Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso, Fecha &fechaEntrega,
-               bool entregado, double pesoEncomienda, Vehiculo *vehiculo);
+    Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso , double pesoEncomienda, Vehiculo *vehiculo);
     void escribirInfo();
-    void setFechaEntrega(Fecha fecha);
+    void setFechaEntrega(Fecha &fecha);
     Fecha getFechaEntrega();
     int getCodigo();
     double calcularPrecioEncomienda();

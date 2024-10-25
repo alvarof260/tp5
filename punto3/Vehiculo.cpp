@@ -2,6 +2,8 @@
 #include "Vehiculo.h"
 using namespace std;
 
+float Vehiculo::INCREMENTO = 0.25; 
+
 Vehiculo::Vehiculo(string patente, int anioModelo,
                    double pesoMax, double tarifa)
 {
