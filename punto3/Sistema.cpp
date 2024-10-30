@@ -14,7 +14,7 @@ void Sistema::cargarFechaEntrega(int codigo, Fecha &fechaEntrega)
 {
     for (Encomienda *e : this->encomiendas)
     {
-        if(e->getCodigo() == codigo)
+        if (e->getCodigo() == codigo)
             e->setFechaEntrega(fechaEntrega);
     }
 }
@@ -22,23 +22,22 @@ void Sistema::cargarFechaEntrega(int codigo, Fecha &fechaEntrega)
 void Sistema::listarFechas(Fecha &fecha)
 {
     double recaudacion = 0;
-    for (Encomienda* e : this->encomiendas)
+    for (Encomienda *e : this->encomiendas)
     {
-        if (e->getFechaEntrega().getAnio() == fecha.getAnio() && e->getFechaEntrega().getMes() == fecha.getMes() &&   e->getFechaEntrega().getDia() == fecha.getDia())
+        if (e->getFechaEntrega().getAnio() == fecha.getAnio() && e->getFechaEntrega().getMes() == fecha.getMes() && e->getFechaEntrega().getDia() == fecha.getDia())
         {
             e->escribirInfo();
             recaudacion += e->calcularPrecioEncomienda();
         }
-        cout << "Recaudacion: $" << recaudacion << endl;
     }
+    cout << "Recaudacion: $" << recaudacion << endl;
 }
 
 Sistema::~Sistema()
 {
-    for (Encomienda* e : this->encomiendas)
+    for (Encomienda *e : this->encomiendas)
     {
         delete e;
     }
     this->encomiendas.clear();
-    
 }

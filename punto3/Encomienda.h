@@ -16,12 +16,11 @@ class Encomienda
     Vehiculo *vehiculo;
 
 public:
-    Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso , double pesoEncomienda, Vehiculo *vehiculo);
+    Encomienda(string dirOrigen, string dirDestino, Fecha &fechaIngreso, double pesoEncomienda, Vehiculo *vehiculo);
     void escribirInfo();
     void setFechaEntrega(Fecha &fecha);
     Fecha getFechaEntrega();
     int getCodigo();
     double calcularPrecioEncomienda();
     double getPeso();
-    ~Encomienda();
 };
